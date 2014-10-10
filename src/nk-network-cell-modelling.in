@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+from cell_modelling.processing import doAutomata
+import sys
+
+if __name__ == "__main__":
+	defaultN= 5
+	defaultK= 2
+	if len(sys.argv)==3:
+		N = sys.argv[1]
+		K = sys.argv[2]
+		doAutomata(N,K)
+	else:
+		doAutomata(defaultN,defaultK)
+
