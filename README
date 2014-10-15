@@ -1,3 +1,7 @@
+KNOWLEDGE DOMAIN EXPLANATION
+
+This software models life cell genetic regulation using Kauffman`s NK-automata. N stands for amount of genes a cell has. K represents amount of genes each gene behavior depends on. In this model gene is roughly a boolean variable which can be true or false (gene can be in to states: active or passive). States of all genes altogether at a particular discrete moment of time are a cell state. The model describes living cell regulatory mechanics i.e. how genes' interaction defines the sequence of cell states.
+
 ExplanationPictures folder contains images that support the following text.
 
 01. There are many organells in a living cell. But we are interested particualry in the nucleus (and partially with mitochondria)
@@ -26,9 +30,35 @@ ExplanationPictures folder contains images that support the following text.
 
 13. The cell changes it's state in time. But since there is finite amount of state and the state is strictly defined by previous state, guess what?
 
-14. The behavior becomes cyclical! 
+14. The behavior becomes cyclical!
 
-This piece of software takes number of genes (N) and amount of links (K) as inputs and builds a random network of genes and three graphs:
+This is first but not the only wonderful implication of the model. There are others: there are often more than one possible cycle for the cell. Furthermore, experiments suggest that amount of cell types in actual living organizm corelates with amount of cycles in a model!
+
+This piece of software helps to explore dependence between genes' structure and the cell's behavior. E.g.how many cycles a cell can have, what makes them large or small... ect.
+
+INSTALLATION AND USAGE
+
+Type the following commands to terminal:
+
+sudo apt-get install graphviz livgraphviz-dev
+sudo apt-get install python-setuptools
+easy_install pygraphviz
+
+sudo make install
+
+sudo nk-network-cell-modelling
+
+The program will draw some random cell and tell you some info about the cell and the path for the graphs images:
 	- graph of all cell states
 	- graph of only those states which in cycle 
 	- graph of links among genes
+	
+The program can also take two parameters: N and K
+
+e.g.:
+
+nk-network-cell-modelling 8 5
+
+will build a random cell with 8 genes (N) and 5 links per gene (K)
+
+
